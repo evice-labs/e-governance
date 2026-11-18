@@ -54,7 +54,7 @@ The **Logos DAO Governance Mini-App** is the canonical reference dApp demonstrat
 
 2. **Deterministic Scoped Nullifiers ($N_s$):**
    Derived specifically for each proposal:
-   $$\text{scope} = \text{"dao.governance.lez/proposal/"} \mathbin{\Vert} \text{proposal\_id}$$
+   $$\text{scope} = \text{"dao.governance.lez/proposal/"} \mathbin{\Vert} \text{proposal}\_\text{id}$$
    $$N_s = \text{SHA-256}(s \mathbin{\Vert} \text{scope})$$
    - **Determinism:** The same voter submitting multiple times for Proposal #1 always generates the exact same nullifier $N_1$, allowing the sequencer and contract to instantly reject duplicate votes.
    - **Domain Separation & Unlinkability:** The same voter submitting for Proposal #2 generates $N_2 \neq N_1$. Nobody can link a ballot on Proposal #1 to a ballot on Proposal #2.
