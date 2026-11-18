@@ -1,0 +1,28 @@
+{
+  "name": "dao_miniapp",
+  "display_name": "Logos Governance",
+  "version": "0.1.0",
+  "type": "ui_qml",
+  "interface": "universal",
+  "category": "governance",
+  "description": "Decentralized Anonymous Voting dApp powered by Wallez Identity Accountability",
+  "view": "qml/Main.qml",
+  "icon": "assets/daoLogo.png",
+  "dependencies": ["e_wallet_core"],
+  "nix": {
+    "packages": {
+      "build": [],
+      "runtime": [
+        "qt6.qtdeclarative"
+      ]
+    },
+    "external_libraries": [],
+    "cmake": {
+      "find_packages": [],
+      "extra_sources": [],
+      "extra_include_dirs": [],
+      "extra_link_libraries": []
+    }
+  }
+}
+

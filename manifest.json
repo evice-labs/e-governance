@@ -1,0 +1,14 @@
+{
+  "author": "Logos Ecosystem",
+  "category": "governance",
+  "dependencies": ["e_wallet_core"],
+  "description": "Decentralized Anonymous Voting dApp powered by Wallez Identity Accountability",
+  "display_name": "Logos Governance",
+  "icon": "assets/daoLogo.png",
+  "main": {},
+  "manifestVersion": "0.6.0",
+  "name": "dao_miniapp",
+  "type": "ui_qml",
+  "version": "0.1.0",
+  "view": "qml/Main.qml"
+}
