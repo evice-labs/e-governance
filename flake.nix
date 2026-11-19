@@ -22,10 +22,10 @@
       nix-bundle-logos-module-install = logos-module-builder.inputs.nix-bundle-logos-module-install;
       supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
 
-      packages = nixpkgs.lib.genAttrs supportedSystems (system:
+      packages = nixpkgs.lib.mapAttrs (system: baseSysPkgs:
         let
-          pkgs = nixpkgs.legacyPackages.${system};
-          baseSysPkgs = moduleOutputs.packages.${system};
+          buildSystem = if system == "x86_64-windows" then "x86_64-linux" else system;
+          pkgs = nixpkgs.legacyPackages.${buildSystem};
           withWallezKit = (pkgs.runCommand "logos-dao_miniapp-module" {} ''
             cp -a ${baseSysPkgs.default} $out
             chmod -R u+w $out
@@ -43,7 +43,7 @@
           install = nix-bundle-logos-module-install.bundlers.${system}.dev withWallezKit;
           install-portable = nix-bundle-logos-module-install.bundlers.${system}.portable withWallezKit;
         }
-      );
+      ) moduleOutputs.packages;
 
       extraChecks = nixpkgs.lib.genAttrs supportedSystems (system:
         let
